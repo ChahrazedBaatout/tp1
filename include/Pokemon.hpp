@@ -4,30 +4,34 @@
 using std::string;
 
 class Pokemon{
+
     private:
         int id;
         string name;
-        double hitPoint;
+        string evolution;
+        double maxHitPoint;
+        double currHitPoint;
         double attack;
         double defense;
-        int generation;
+
     public:
 
-        Pokemon(int id, string name, double hitPoint, double attack, double defense, int generation): 
+        Pokemon(int id, string name, double maxhitPoint, double currhitPoint, double attack, double defense): 
             id(id), 
             name(name), 
-            hitPoint(hitPoint), 
+            maxHitPoint(maxHitPoint),
+            currHitPoint(currHitPoint), 
             attack(attack), 
-            defense(defense), 
-            generation(generation) {}
+            defense(defense) {
+            }
         
         Pokemon(const Pokemon& other): 
             id(other.id),
             name(other.name),
-            hitPoint(other.hitPoint),
+            maxHitPoint(other.maxHitPoint),
+            currHitPoint(other.currHitPoint),
             attack(other.attack),
-            defense(other.defense),
-            generation(other.generation){
+            defense(other.defense){
                 std::cout << "Constructeur de copie appelé" << std::endl;
                 std::cout << std::endl;
             }
@@ -40,25 +44,25 @@ class Pokemon{
         // Getters
         int getId() const { return id; }
         string getName() const { return name; }
-        double getHitPoint() const { return hitPoint; }
+        double getMaxHitPoint() const { return maxHitPoint; }
+        double getCurrHitPoint() const { return currHitPoint; }
         double getAttack() const { return attack; }
         double getDefense() const { return defense; }
-        int getGeneration() const { return generation; }
 
         // Setters
         void setName(const string& n) { name = n; }
-        void setHitPoint(double hp) { hitPoint = hp; }
+        void setMaxHitPoint(double maxhp) { maxHitPoint = maxhp; }
+        void setCurrHitPoint(double currhp) { currHitPoint = currhp; }
         void setAttack(double atk) { attack = atk; }
         void setDefense(double def) { defense = def; }
-        void setGeneration(int gen) { generation = gen; }
 
         void displayInfo(){
             std::cout << "ID: " << id << std::endl;
             std::cout << "Nom: " << name << std::endl;
-            std::cout << "HP: " << hitPoint << std::endl;
+            std::cout << "HP maximum: " << maxHitPoint << std::endl;
+            std::cout << "HP actuel: " << currHitPoint << std::endl;
             std::cout << "Attaque: " << attack << std::endl;
             std::cout << "Défense: " << defense << std::endl;
-            std::cout << "Generation: " << generation << std::endl;
             std::cout << std::endl;
         }
 
